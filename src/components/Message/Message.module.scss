@@ -1,0 +1,19 @@
+.Message {
+    margin: 0 0 20px 0;
+    padding: 5px 15px;
+}
+
+
+@media (min-width: 1230px) {
+
+}
+
+@media (max-width: 1229px) and (min-width: 481px) {
+    $tb: 8.00vw;
+
+}
+
+@media (max-width: 480px) {
+    $mb: 4.80vw;
+
+}

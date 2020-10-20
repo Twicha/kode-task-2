@@ -1,0 +1,32 @@
+.Header {
+    margin-bottom: 23px;
+    padding: 20px 33px 20px 21px;
+    background: #ebebeb;
+    display: block;
+
+    * {
+        font-size: 18px;
+        line-height: 21px;
+        color: black;
+    }
+    
+    a {
+        float: left;
+        text-decoration: none;
+    }
+
+    button {
+        float: right;
+    }
+}
+
+@media (min-width: 1230px) {
+}
+
+@media (max-width: 1229px) and (min-width: 481px) {
+    $tb: 8vw;
+}
+
+@media (max-width: 480px) {
+    $mb: 4.8vw;
+}

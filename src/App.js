@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import classes from "./App.module.scss";
+import classNames from "classnames";
+import { useAuth } from "./hooks/auth.hook";
+import { AuthContext } from "./context/AuthContext";
+import { useRoutes } from "./routes";
+import { Header } from "./components";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const { auth, token, login, logout } = useAuth();
+    const isAuth = !!token;
+    const routes = useRoutes(isAuth);
+
+    console.log(isAuth);
+
+    return (
+        <AuthContext.Provider value={{ auth, isAuth, login, logout }}>
+            <div className={classNames(classes.App)}>
+                {isAuth && <Header />}
+                {routes}
+            </div>
+        </AuthContext.Provider>
+    );
 }
 
 export default App;

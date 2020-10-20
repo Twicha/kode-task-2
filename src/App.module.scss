@@ -1,0 +1,20 @@
+.App {
+    padding: 25px 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 1230px) {
+
+}
+
+@media (max-width: 1229px) and (min-width: 481px) {
+    $tb: 8.00vw;
+
+}
+
+@media (max-width: 480px) {
+    $mb: 4.80vw;
+
+}

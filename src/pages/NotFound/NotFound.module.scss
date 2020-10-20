@@ -1,0 +1,49 @@
+.NotFound {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .NotFound__Info {
+        padding: 15px;
+        width: 100%;
+        max-width: 700px;
+
+        * {
+            text-shadow: 1px 1px 5px black;
+            color: white;
+            display: block;
+        }
+
+        h1 {
+            font-size: 160px;
+        }
+
+        p {
+            font-size: 40px;
+        }
+
+        a {
+            margin: 20px 0 0 0;
+            font-size: 30px;
+        }
+    }
+}
+
+@media (min-width: 1230px) {
+}
+
+@media (max-width: 1229px) and (min-width: 481px) {
+    $tb: 8vw;
+}
+
+@media (max-width: 480px) {
+    $mb: 4.8vw;
+}

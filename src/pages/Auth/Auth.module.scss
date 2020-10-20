@@ -1,0 +1,41 @@
+.Auth {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form {
+        padding: 55px 59px 41px 59px;
+        width: 396px;
+        background: #FAFAFA;
+
+        button {
+            margin: 0 auto;
+            min-width: 96px;
+            width: 96px;
+            height: 96px;
+            display: block;
+            background-color: #999999;
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            border-radius: 100%;
+        }
+    }
+}
+
+@media (min-width: 1230px) {
+
+}
+
+@media (max-width: 1229px) and (min-width: 481px) {
+    $tb: 8.00vw;
+
+}
+
+@media (max-width: 480px) {
+    $mb: 4.80vw;
+
+}
