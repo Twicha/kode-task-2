@@ -1,25 +1,27 @@
 {
   "files": {
-    "main.css": "/kode-task-2/static/css/main.afc59e71.chunk.css",
-    "main.js": "/kode-task-2/static/js/main.d35122be.chunk.js",
-    "main.js.map": "/kode-task-2/static/js/main.d35122be.chunk.js.map",
+    "main.css": "/kode-task-2/static/css/main.13f52b86.chunk.css",
+    "main.js": "/kode-task-2/static/js/main.25d98368.chunk.js",
+    "main.js.map": "/kode-task-2/static/js/main.25d98368.chunk.js.map",
     "runtime-main.js": "/kode-task-2/static/js/runtime-main.d919417b.js",
     "runtime-main.js.map": "/kode-task-2/static/js/runtime-main.d919417b.js.map",
-    "static/js/2.106f5b7d.chunk.js": "/kode-task-2/static/js/2.106f5b7d.chunk.js",
-    "static/js/2.106f5b7d.chunk.js.map": "/kode-task-2/static/js/2.106f5b7d.chunk.js.map",
+    "static/js/2.1a763d65.chunk.js": "/kode-task-2/static/js/2.1a763d65.chunk.js",
+    "static/js/2.1a763d65.chunk.js.map": "/kode-task-2/static/js/2.1a763d65.chunk.js.map",
     "index.html": "/kode-task-2/index.html",
-    "precache-manifest.c9aa99281fafeb8638986866c5967d33.js": "/kode-task-2/precache-manifest.c9aa99281fafeb8638986866c5967d33.js",
+    "precache-manifest.495832d1213963930332a9a6228aba90.js": "/kode-task-2/precache-manifest.495832d1213963930332a9a6228aba90.js",
     "service-worker.js": "/kode-task-2/service-worker.js",
-    "static/css/main.afc59e71.chunk.css.map": "/kode-task-2/static/css/main.afc59e71.chunk.css.map",
-    "static/js/2.106f5b7d.chunk.js.LICENSE.txt": "/kode-task-2/static/js/2.106f5b7d.chunk.js.LICENSE.txt",
-    "static/media/arrow.svg": "/kode-task-2/static/media/arrow.2090aecc.svg",
+    "static/css/main.13f52b86.chunk.css.map": "/kode-task-2/static/css/main.13f52b86.chunk.css.map",
+    "static/js/2.1a763d65.chunk.js.LICENSE.txt": "/kode-task-2/static/js/2.1a763d65.chunk.js.LICENSE.txt",
+    "static/media/arrow.svg": "/kode-task-2/static/media/arrow.8454dfc3.svg",
+    "static/media/littleMore.svg": "/kode-task-2/static/media/littleMore.244f107c.svg",
+    "static/media/notFound.png": "/kode-task-2/static/media/notFound.d47e8d79.png",
     "static/media/pikachu.gif": "/kode-task-2/static/media/pikachu.8bc686b1.gif",
     "static/media/pokemon-not-found.jpg": "/kode-task-2/static/media/pokemon-not-found.d51f9f9b.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.d919417b.js",
-    "static/js/2.106f5b7d.chunk.js",
-    "static/css/main.afc59e71.chunk.css",
-    "static/js/main.d35122be.chunk.js"
+    "static/js/2.1a763d65.chunk.js",
+    "static/css/main.13f52b86.chunk.css",
+    "static/js/main.25d98368.chunk.js"
   ]
 }
