@@ -17,6 +17,7 @@ const SinglePokemon = ({ match }) => {
             const data = await response.json();
 
             setPokemon({ ...data.card });
+            document.title = `Pokemon | ${data.card.name}`;
             setLoading(false);
         });
     }, []);

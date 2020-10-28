@@ -36,6 +36,8 @@ const Home = () => {
     const [subtypeArr, setSubtypeArr] = React.useState([]);
 
     React.useEffect(() => {
+        document.title = "Pokemon | Home";
+
         request(`/types`).then(async (response) => {
             const data = await response.json();
 

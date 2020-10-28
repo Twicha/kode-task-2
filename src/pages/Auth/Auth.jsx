@@ -7,6 +7,10 @@ import { useForm } from "../../hooks/form.hook";
 const Auth = () => {
     const { form, changeHandler, touchInputHandler, authHandler } = useForm();
 
+    React.useEffect(() => {
+        document.title = "Pokemon | Auth";
+    }, []);
+
     const confirmationControl = (
         <FormControl
             label="Code from SMS"
