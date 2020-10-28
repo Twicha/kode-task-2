@@ -2,7 +2,7 @@
   "name": "kode-task-2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://Twicha.github.io/kode-task-2",
+  "homepage": "http://Twicha.github.io/kode-task-2/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
