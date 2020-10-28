@@ -3,6 +3,7 @@ import classes from "./SortPopup.module.scss";
 import classNames from "classnames";
 import arrow from "./arrow.svg";
 import notFoundImg from "./notFound.png";
+import { useScroll } from "../../hooks/scroll.hook";
 
 const SortPopup = ({
     label = "label",
@@ -13,6 +14,7 @@ const SortPopup = ({
     selectedFilter,
     loading,
 }) => {
+    const { scrollTop } = useScroll();
     const [visible, setVisible] = React.useState(false);
     const sortPopupRef = React.useRef();
     const [searchValue, setSearchValue] = React.useState("");
@@ -73,6 +75,7 @@ const SortPopup = ({
     };
 
     const resetFilterHandler = () => {
+        scrollTop();
         resetFilter(null);
     };
 
