@@ -1,44 +1,91 @@
 .PokemonCard {
     margin: 0 0 57px 0;
-    padding: 16px 14px;
     width: 217px;
     display: flex;
     flex-direction: column;
     background: #EBEBEB;
+    position: relative;
 
     a {
+        padding: 26px 14px 16px;
         text-decoration: none;
         color: black;
+    }
 
-        .PokemonCard__Img {
-            width: 100%;
-            height: 264px;
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-        }
+    .PokemonCard__Img {
+        width: 100%;
+        height: 264px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+
+    .PokemonCard__Title, .PokemonCard__Disc {
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .PokemonCard__Title {
+        margin: 15px 0;
+    }
+
+    .PokemonCard__LittleMore {
+        position: absolute;
+        min-width: 20px;
+        width: 20px;
+        height: 20px;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        right: 5px;
+        top: 2px;
+        cursor: help;
+    }
+
+    &.Loading {
+        position: relative;
+        overflow: hidden;
+
+        .Wrapper {
+            padding: 26px 14px 16px;
+
+            .PokemonCard__Img {
+                background: rgb(179, 179, 179) !important;
+            }
+        
+            .PokemonCard__Title {
+                width: 80%;
+                color: transparent;
+                background: rgb(179, 179, 179) !important;
+            }
+        
+            .PokemonCard__Disc {
+                width: 40%;
+                color: transparent;
+                background: rgb(179, 179, 179) !important;
+            }
     
-        .PokemonCard__Title, .PokemonCard__Disc {
-            font-size: 12px;
-            line-height: 14px;
-        }
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: linear-gradient(115deg, rgba(255,255,255,0) 40%, rgba(235,235,235,.2) 50%, rgba(255,255,255,0.00043767507002800965) 60%);
+                animation: move 1.5s linear 0s infinite;
     
-        .PokemonCard__Title {
-            margin: 15px 0;
+                @keyframes move {
+                    from {
+                        transform: translateX(-100%);
+                    }
+    
+                    to {
+                        transform: translateX(100%);
+                    }
+                }
+            }
         }
     }
-}
-
-@media (min-width: 1230px) {
-
-}
-
-@media (max-width: 1229px) and (min-width: 481px) {
-    $tb: 8.00vw;
-
-}
-
-@media (max-width: 480px) {
-    $mb: 4.80vw;
-
 }

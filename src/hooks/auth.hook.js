@@ -1,14 +1,13 @@
 import Axios from "axios";
 import React from "react";
-import { useHistory } from "react-router-dom";
 
 export const useAuth = () => {
-    const [token, setToken] = React.useState(null);
+    const [token, setToken] = React.useState(localStorage.getItem("authToken") || null);
 
     React.useEffect(() => {
-        const expIn = localStorage.getItem("tokenLifeSpan");
-
-        if ((new Date()).toString() > expIn) {
+        const expIn = +localStorage.getItem("tokenLifeSpan");
+        
+        if ((new Date()).getTime() > expIn) {
             logout();
         } else {
             setToken(localStorage.getItem("authToken"));
@@ -17,9 +16,7 @@ export const useAuth = () => {
 
     const login = React.useCallback((response = null) => {
         if (response) {
-            const expDate = new Date(
-                new Date().getTime() + +response.data.expiresIn * 1000
-            ).toString();
+            const expDate = (new Date()).getTime() + +response.data.expiresIn * 1000
 
             setToken(response.data.idToken);
 

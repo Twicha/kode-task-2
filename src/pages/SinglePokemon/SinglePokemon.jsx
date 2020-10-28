@@ -1,27 +1,114 @@
-import React from 'react';
-import classes from './SinglePokemon.module.scss';
-import classNames from 'classnames';
-import Axios from 'axios';
+import React from "react";
+import classes from "./SinglePokemon.module.scss";
+import classNames from "classnames";
+import { useHttp } from "../../hooks/http.hook";
+import { Loader } from "../../components";
 
-const SinglePokemon = ({match}) => {
+const defaultInfo = "Unfortunately this information is not available";
 
-    const [pokemon, setPokemon] = React.useState({});
-
-    console.log(match);
+const SinglePokemon = ({ match }) => {
+    const { request } = useHttp();
+    const [pokemon, setPokemon] = React.useState(null);
+    const [loading, setLoading] = React.useState(false);
 
     React.useEffect(() => {
-        Axios.get(`https://api.pokemontcg.io/v1/cards/${match.params.id}`).then((res) => {
-            console.log(res);
-            setPokemon({...res.data.card});
+        setLoading(true);
+        request(`/cards/${match.params.id}`).then(async (response) => {
+            const data = await response.json();
+
+            setPokemon({ ...data.card });
+            setLoading(false);
         });
     }, []);
 
+    if (loading) {
+        return (
+            <div className={classNames(classes.SinglePokemon, "container")}>
+                <Loader />;
+            </div>
+        );
+    }
+
     return (
-        <div>
-            <img src={pokemon.imageUrl} alt="gdfgfd"/>
-            {pokemon.name}
-        </div>
-    )
-}
+        <React.Fragment>
+            {pokemon && (
+                <div className={classNames(classes.SinglePokemon, "container")}>
+                    <div className={classes.SinglePokemonInfo}>
+                        <div className={classes.SinglePokemon__Img}>
+                            <img
+                                src={pokemon.imageUrl && pokemon.imageUrl}
+                                alt={pokemon.name && pokemon.name}
+                            />
+                        </div>
+                        <ul>
+                            <li>
+                                <span>Pokemon name: </span>
+                                <span>{pokemon.name ? pokemon.name : defaultInfo}</span>
+                            </li>
+                            <li>
+                                <span>Type: </span>
+                                <span>
+                                    {pokemon.types
+                                        ? pokemon.types.join(", ")
+                                        : defaultInfo}
+                                </span>
+                            </li>
+                            <li>
+                                <span>Subtype: </span>
+                                <span>
+                                    {pokemon.subtype ? pokemon.subtype : defaultInfo}
+                                </span>
+                            </li>
+                            <hr />
+                            <li>
+                                <span>Attack Damage: </span>
+                                <span>
+                                    {pokemon.attacks
+                                        ? pokemon.attacks
+                                              .map((item) => item.damage)
+                                              .join(", ")
+                                        : defaultInfo}
+                                </span>
+                            </li>
+                            <li>
+                                <span>Attack Cost: </span>
+                                <span>
+                                    {pokemon.attacks
+                                        ? pokemon.attacks
+                                              .map((item) => item.cost.join("+"))
+                                              .join(", ")
+                                        : defaultInfo}
+                                </span>
+                            </li>
+                            <li>
+                                <span>Resistances: </span>
+                                <span>
+                                    {pokemon.resistances
+                                        ? pokemon.resistances
+                                              .map((item) => `${item.type} ${item.value}`)
+                                              .join(", ")
+                                        : defaultInfo}
+                                </span>
+                            </li>
+                            <li>
+                                <span>Evolves From: </span>
+                                <span>
+                                    {pokemon.evolvesFrom
+                                        ? pokemon.evolvesFrom
+                                        : defaultInfo}
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <p className={classes.SinglePokemon__Desc}>
+                        {pokemon.attacks
+                            ? pokemon.attacks.map((item) => item.text).join(" ")
+                            : defaultInfo}
+                    </p>
+                </div>
+            )}
+        </React.Fragment>
+    );
+};
 
 export default SinglePokemon;

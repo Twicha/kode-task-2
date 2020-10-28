@@ -7,18 +7,15 @@ export const useRoutes = (isAuth) => {
         return (
             <Switch>
                 <Route path="/" exact component={Home} />
-                <Route path="/pokemon/:id" exact component={SinglePokemon} />
-                <Route path="/404" exact component={NotFound} />
-                <Redirect to="/" />
+                <Route path="/pokemon/:id" component={SinglePokemon} />
+                <Route path="*" exact component={NotFound} />
             </Switch>
         );
     }
 
     return (
         <Switch>
-            <Route path="/auth" exact>
-                <Auth />
-            </Route>
+            <Route path="/auth" exact component={Auth} />
             <Redirect to="/auth" />
         </Switch>
     );

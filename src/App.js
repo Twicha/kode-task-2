@@ -3,22 +3,43 @@ import classes from "./App.module.scss";
 import classNames from "classnames";
 import { useAuth } from "./hooks/auth.hook";
 import { AuthContext } from "./context/AuthContext";
-import { useRoutes } from "./routes";
+import { PagesContext } from "./context/PagesContext";
 import { Header } from "./components";
+import { usePages } from "./hooks/pages.hook";
+import { useRoutes } from "./routes";
 
 function App() {
+    const {
+        pages,
+        getTotalPage,
+        pressPage,
+        setSubtype,
+        setTypes,
+        setCurrentPageToStart,
+        removeFilters,
+    } = usePages({ location: window.location });
     const { auth, token, login, logout } = useAuth();
     const isAuth = !!token;
     const routes = useRoutes(isAuth);
 
-    console.log(isAuth);
-
     return (
         <AuthContext.Provider value={{ auth, isAuth, login, logout }}>
-            <div className={classNames(classes.App)}>
-                {isAuth && <Header />}
-                {routes}
-            </div>
+            <PagesContext.Provider
+                value={{
+                    pages,
+                    getTotalPage,
+                    pressPage,
+                    setSubtype,
+                    setTypes,
+                    setCurrentPageToStart,
+                    removeFilters,
+                }}
+            >
+                <div className={classNames(classes.App)}>
+                    {isAuth && <Header removeFilters={removeFilters} logout={logout} />}
+                    {routes}
+                </div>
+            </PagesContext.Provider>
         </AuthContext.Provider>
     );
 }

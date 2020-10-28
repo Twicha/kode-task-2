@@ -1,34 +1,247 @@
 .Home {
+    width: 100%;
     display: flex;
     justify-content: space-between;
 
-    aside {
+    .Aside {
+        padding: 72px 20px;
         min-width: 320px;
         width: 320px;
         display: flex;
-        background: #FAFAFA;
+        flex-direction: column;
+        background: #fafafa;
+        align-self: flex-start;
     }
 
-    .PokemonList {
-        padding: 59px 87px;
-        width: 684px;
+    main {
+        width: 100%;
+
+        .PokemonList {
+            padding: 59px 87px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    }
+
+    .QuickView {
+        position: fixed;
+        z-index: 1000;
+        width: 100%;
+        height: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.8);
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-y: scroll;
+
+        .SinglePokemon {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+
+            .SinglePokemonInfo {
+                display: flex;
+                margin: 0 0 30px 0;
+                .SinglePokemon__Img {
+                    margin: 0 35px 0 0;
+                    width: 300px;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    list-style: none;
+
+                    li {
+                        span {
+                            color: white;
+                            font-size: 22px;
+
+                            &:first-child {
+                                font-weight: 500;
+                            }
+
+                            &:last-child {
+                            }
+                        }
+                    }
+                }
+            }
+
+            .SinglePokemon__Desc {
+                color: white;
+                width: 600px;
+                font-size: 22px;
+            }
+        }
+    }
+
+    &.FixedBar {
+        justify-content: flex-end;
+
+        .Aside {
+            position: fixed;
+            top: 10px;
+            left: calc((100% - 1032px) / 2);
+        }
+
+        main {
+            width: calc(100% - 320px);
+
+            .PokemonList {
+            }
+        }
     }
 }
 
+@media (max-width: 1032px) {
+    .Home {
+        padding: 0 10px;
 
-@media (min-width: 1230px) {
+        .Aside {
+            padding: 30px 20px;
+            min-width: 250px;
+            width: 250px;
+        }
 
+        main {
+            width: 100%;
+
+            .PokemonList {
+                padding: 30px 90px;
+            }
+        }
+
+        .QuickView {
+            .SinglePokemon {
+                padding: 50px 10px;
+
+                .SinglePokemonInfo {
+                    margin: 0 0 30px 0;
+                    .SinglePokemon__Img {
+                        margin: 0 35px 0 0;
+                        min-width: 200px;
+                        width: 200px;
+                    }
+
+                    ul {
+                        li {
+                            span {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+
+                .SinglePokemon__Desc {
+                    width: 100%;
+                    font-size: 18px;
+                }
+            }
+        }
+
+        &.FixedBar {
+            .Aside {
+                position: fixed;
+                top: 10px;
+                left: 10px;
+            }
+
+            main {
+                width: calc(100% - 250px);
+
+                .PokemonList {
+                }
+            }
+        }
+    }
 }
 
-@media (max-width: 1229px) and (min-width: 481px) {
-    $tb: 8.00vw;
-
+@media (max-width: 920px) {
+    .Home {
+        main {
+            .PokemonList {
+                padding: 30px 40px;
+            }
+        }
+    }
 }
 
-@media (max-width: 480px) {
-    $mb: 4.80vw;
+@media (max-width: 820px) {
+    .Home {
+        flex-direction: column;
 
+        .Aside {
+            width: 100%;
+        }
+
+        main {
+            width: 100%;
+
+            .PokemonList {
+                padding: 30px 90px;
+            }
+        }
+
+        &.FixedBar {
+            .Aside {
+                position: static;
+            }
+
+            main {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 660px) {
+    .Home {
+        main {
+            .PokemonList {
+                padding: 30px 30px;
+            }
+        }
+
+        .QuickView {
+            .SinglePokemon {
+                .SinglePokemonInfo {
+                    flex-direction: column;
+                    .SinglePokemon__Img {
+                        margin: 0 0 30px 0;
+                        width: 100%;
+                    }
+
+                    ul {
+                        li {
+                            margin: 5px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 540px) {
+    .Home {
+        main {
+            .PokemonList {
+                padding: 40px 0;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
 }

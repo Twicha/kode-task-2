@@ -1,0 +1,44 @@
+.Pagination {
+    margin: 0 0 30px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    span {
+        margin: 5px;
+        padding: 5px;
+        color: rgb(0, 153, 255);
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    .Pagination__Plug {
+        cursor: default;
+    }
+
+    .Pagination__CurrentPage {
+        color: rgb(0, 81, 255);
+        font-weight: 600;
+        cursor: default;
+    }
+}
+
+@media (min-width: 1032px) {
+    .Pagination {
+        span {
+            &:hover {
+                color: rgb(0, 81, 255);
+            }
+        }
+    }
+}
+
+@media (max-width: 540px) {
+    .Pagination {
+        span {
+            margin: 2px;
+            font-size: 14px;
+        }
+    }
+}

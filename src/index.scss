@@ -25,3 +25,19 @@ button {
     max-width: 1032px;
 
 }
+
+*::-webkit-input-placeholder, *::-webkit-input-placeholder { 
+    color: #969696 !important; 
+}
+
+*::-moz-placeholde, *::-moz-placeholder { 
+    color: #969696 !important; 
+}
+
+*:-moz-placeholder, *:-moz-placeholder { 
+    color: #969696 !important; 
+}
+
+*:-ms-input-placeholder, *:-ms-input-placeholder { 
+    color: #969696 !important; 
+}

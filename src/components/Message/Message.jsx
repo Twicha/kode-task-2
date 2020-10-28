@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from './Message.module.scss';
-import classNames from 'classnames';
 
 const Message = ({message, background = '', color = ''}) => {
     const styles = {

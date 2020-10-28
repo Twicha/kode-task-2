@@ -1,20 +1,24 @@
-import React, { useContext } from 'react';
-import classes from './Header.module.scss';
-import classNames from 'classnames';
-import { AuthContext } from '../../context/AuthContext';
-import { Link, Route } from 'react-router-dom';
+import React from "react";
+import classes from "./Header.module.scss";
+import classNames from "classnames";
+import { Link, Route } from "react-router-dom";
 
-const Header = () => {
-    const {logout} = useContext(AuthContext);
+const Header = ({ logout, removeFilters }) => {
+    const logoutHandler = () => {
+        removeFilters();
+        logout();
+    };
 
     return (
         <div className={classNames(classes.Header, "container")}>
-            <Route path="/:id">
+            <Route exact path="/pokemon/:id">
                 <Link to="/">&lt; Back</Link>
             </Route>
-            <button type="button" onClick={logout}>Logout</button>
+            <button type="button" onClick={logoutHandler}>
+                Logout
+            </button>
         </div>
-    )
-}
+    );
+};
 
 export default Header;
